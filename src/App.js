@@ -9,10 +9,10 @@ class App extends Component {
     this.state = {
       name: {
         firstName: 'Alejandro',
-        lastName: 'Quezada'
+        lastName: 'Quezada',
       },
-      company: 'Nile Devs'
-    }
+      company: 'Nile Devs',
+    };
   }
   render() {
     return (
@@ -20,17 +20,21 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Hi, {this.state.name.firstName} {this.state.name.lastName}, I work at {this.state.company}
+            Hi, {this.state.name.firstName} {this.state.name.lastName}, I work
+            at {this.state.company}
           </p>
-          <button onClick={() => {
-            this.setState({
-              name: {
-                firstName: 'Julio',
-                lastName: 'Rodriguez'
-              }
-            })
-            console.log(this.state)
-          }}>
+          <button
+            onClick={() => {
+              this.setState(() => {
+                return {
+                  name: {
+                    firstName: 'Julio',
+                    lastName: 'Rodriguez',
+                  },
+                };
+              });
+            }}
+          >
             Change name
           </button>
         </header>
