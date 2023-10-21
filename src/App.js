@@ -34,9 +34,11 @@ class App extends Component {
             const filteredMonsters = this.state.monsters.filter((monster) => {
               return monster.name.toLocaleLowerCase().includes(searchString);
             });
-            this.setState(() => {
-              return { monsters: filteredMonsters }
-            })
+            this.setState(
+              () => {
+                return { monsters: filteredMonsters };
+              },
+            );
           }}
         />
         {this.state.monsters.map((monster) => {
