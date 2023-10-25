@@ -30,8 +30,7 @@ class App extends Component {
     this.setState(() => {
       return { monsters: filteredMonsters };
     });
-  }
-
+  };
 
   render() {
     console.log('render');
@@ -41,7 +40,7 @@ class App extends Component {
           className="search-box"
           type="search"
           placeholder="search monsters"
-          onChange={}
+          onChange={this.onSearchChange}
         />
         {this.state.monsters.map((monster) => {
           return (
