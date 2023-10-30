@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './CardList.css';
 
 class CardList extends Component {
   render() {
@@ -6,7 +7,7 @@ class CardList extends Component {
     console.log('render from Card List');
     const { monsters } = this.props;
     return (
-      <div>
+      <div className='card-list'>
         {monsters.map((monster) => {
           const { name, email, id } = monster;
           return (
