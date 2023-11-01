@@ -1,16 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CardList from './components/card-list/CardList';
 import SearchBox from './components/search-box/SearchBox';
 import './App.css';
 
 const App = () => {
   const [searchField, setSearchField] = useState(''); // [value, setValue]
-  console.log({ searchField });
+  const [monsters, setMonsters] = useState([]);
+
+  console.log('render')
+
+  // The callback it is going to be the code or the effect
+  // that I want to happen inside the functional component
+  // The second array contains different dependencies and by dependencies
+  // these are more likely going to be state values. So either search field of monster in the
+  // context od this application
+  useEffect(() => {}, [])
+
+  // fetch('https://jsonplaceholder.typicode.com/users')
+  //   .then((response) => response.json())
+  //   .then((users) => setMonsters(users)
+  //   );
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
+
+  const filteredMonsters = monsters.filter((monster) => {
+    return monster.name.toLocaleLowerCase().includes(searchField);
+  });
 
   return (
     <div className="App">
@@ -20,8 +38,7 @@ const App = () => {
         onChangeHandler={onSearchChange}
         placeholder="search monsters"
       />
-      {/* 
-      <CardList monsters={filteredMonsters} /> */}
+      <CardList monsters={filteredMonsters} />
     </div>
   );
 };
