@@ -28,7 +28,6 @@ const App = () => {
     });
 
     setFilteredMonsters(newFilteredMonsters);
-    console.log('effect is firing');
   }, [monsters, searchField]);
 
   const onSearchChange = (event) => {
@@ -48,46 +47,5 @@ const App = () => {
     </div>
   );
 };
-
-// class App extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       monsters: [],
-//       searchField: '',
-//     };
-//   }
-
-//   componentDidMount() {
-//     fetch('https://jsonplaceholder.typicode.com/users')
-//       .then((response) => response.json())
-//       .then((users) =>
-//         this.setState(() => {
-//           return { monsters: users };
-//         })
-//       );
-//   }
-
-//   onSearchChange = (event) => {
-//     const searchField = event.target.value.toLocaleLowerCase();
-
-//     this.setState(() => {
-//       return { searchField };
-//     });
-//   };
-
-//   render() {
-//     console.log('render from AppJS');
-//     const { monsters, searchField } = this.state;
-//     const { onSearchChange } = this;
-
-//     const filteredMonsters = monsters.filter((monster) => {
-//       return monster.name.toLocaleLowerCase().includes(searchField);
-//     });
-//     return (
-
-//     );
-//   }
-// }
 
 export default App;
